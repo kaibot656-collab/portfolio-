@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <canvas id="bg-canvas"></canvas>
     <header class="header" id="header">
         <nav class="nav-container" aria-label="Main navigation">
             <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
@@ -22,7 +23,7 @@
     <main class="main">
         <section class="hero" aria-labelledby="hero-title">
             <h1 id="hero-title">sharky03493</h1>
-            <p class="hero-desc">Minecraft plugin developer from the US. Building clean, performant plugins for Paper & Spigot since 2021.</p>
+            <p class="hero-desc">Hello i am sharky i have been working on coding for 2 years now.</p>
             <p class="hero-desc">Open for commissions. DM on Discord.</p>
 
             <div class="tech-section-title">Stack</div>
@@ -33,33 +34,39 @@
                 <i class="fa-solid fa-database" title="SQL"></i>
             </div>
 
-            <!-- Discord Profile Card -->
-            <article class="card discord-card wide-card" id="discord-card">
-                <div class="discord-user-info">
-                    <div class="discord-avatar-container">
-                        <img id="discord-avatar" src="https://cdn.discordapp.com/avatars/1446177881997967460/f1ddea83fe57989a1d4394d66c7ea3e4.webp?size=256" alt="Avatar" loading="lazy">
-                    </div>
-                    <div class="discord-badges" id="discord-badges"></div>
-                    <div class="discord-name-row" id="discord-name">
-                        sharky03493
-                    </div>
-                    <p class="discord-tag" id="discord-status">@sharky03493</p>
+            <!-- Discord Profile Card - single focused card -->
+            <article class="card discord-card wide-card">
+                <div class="discord-profile-banner"></div>
+                <div class="discord-avatar-container">
+                    <img id="discord-avatar" src="https://cdn.discordapp.com/avatars/1446177881997967460/f1ddea83fe57989a1d4394d66c7ea3e4.webp?size=256" alt="Avatar" loading="lazy">
                 </div>
-                <a href="https://discord.com/users/1446177881997967460" target="_blank" class="discord-connect-btn" rel="noopener noreferrer">
-                    <i class="fa-brands fa-discord"></i> View Profile
+                <div class="discord-badges">
+                    <i class="fa-brands fa-discord" style="color: #5865F2;"></i>
+                </div>
+                <div class="discord-user-info">
+                    <div class="discord-name-row">
+                        sharky03493 <span style="font-size: 0.9rem;"></span>
+                    </div>
+                    <p class="discord-tag">@sharky03493</p>
+                </div>
+                <a href="https://discord.com/users/801457058611593266" target="_blank" class="discord-connect-btn" rel="noopener noreferrer">
+                    <i class="fa-brands fa-discord"></i> Connect on Discord
                 </a>
             </article>
 
             <div class="hero-links">
-                <a href="https://discord.com/users/1446177881997967460" target="_blank" class="btn btn-primary" rel="noopener noreferrer">
-                    <i class="fa-brands fa-discord"></i> Discord
+                <a href="projects.html" class="btn btn-primary">
+                    <i class="fa-solid fa-folder"></i> Projects
+                </a>
+                <a href="servers.html" class="btn btn-secondary">
+                    <i class="fa-solid fa-server"></i> Servers
                 </a>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>Built by <a href="https://discord.com/users/1446177881997967460" target="_blank" rel="noopener noreferrer">sharky03493</a> · <a href="https://discord.com/users/1446177881997967460" target="_blank" rel="noopener noreferrer">Discord: sharky03493</a></p>
+        <p>Built by <a href="https://discord.com/users/801457058611593266" target="_blank" rel="noopener noreferrer">sharky03493</a> · <a href="https://discord.com/users/801457058611593266" target="_blank" rel="noopener noreferrer">Discord: sharky03493</a></p>
     </footer>
 
     <script src="script.js"></script>

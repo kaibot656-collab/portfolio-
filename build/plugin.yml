@@ -1,0 +1,5 @@
+name: ChatManager
+version: 1.0.0
+main: me.kaibo.chatmanager.ChatManager
+api-version: 1.20
+author: Sharky

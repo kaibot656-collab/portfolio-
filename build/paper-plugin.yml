@@ -1,0 +1,6 @@
+name: ChatManager
+version: 1.0.0
+main: me.kaibo.chatmanager.ChatManager
+api-version: 1.21
+author: Sharky
+description: Plugin by Sharky

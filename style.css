@@ -1,0 +1,1164 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #000;
+    --card-bg: #111;
+    --card-border: #222;
+    --text-main: #fff;
+    --text-muted: #888;
+    --text-dim: #555;
+    --accent: #38bdf8;
+    --accent-dim: rgba(56, 189, 248, 0.08);
+    --discord-blurple: #5865f2;
+    --success: #10b981;
+    --purple: #a855f7;
+    --orange: #f97316;
+    --gold: #fbbf24;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid #333;
+    padding: 16px 24px;
+}
+
+.header.scrolled {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.nav-link {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: color 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+.nav-link.active {
+    color: #fff;
+}
+
+.nav-link.active::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.1);
+}
+
+.nav-link i {
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+}
+
+.nav-link:hover i {
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   MAIN
+   ========================================== */
+
+/* ==========================================
+   MAIN
+   ========================================== */
+.main {
+    padding-top: 100px;
+    padding-bottom: 80px;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+.hero {
+    text-align: center;
+    padding: 60px 0 40px;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin: 0 0 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #fff;
+}
+
+.hero-desc {
+    color: #888;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto 12px;
+}
+
+.hero-desc:last-of-type {
+    margin-bottom: 32px;
+}
+
+/* Tech Section */
+.tech-section-title {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: #555;
+    margin: 48px 0 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    font-size: 2rem;
+    color: #666;
+    margin-bottom: 56px;
+}
+
+.tech-icons i {
+    cursor: default;
+}
+
+.tech-icons i:nth-child(1):hover { color: #e8c800; }
+.tech-icons i:nth-child(2):hover { color: #f89820; }
+.tech-icons i:nth-child(3):hover { color: #3776ab; }
+.tech-icons i:nth-child(4):hover { color: #f7df1e; }
+
+/* ==========================================
+   WIDGETS GRID
+   ========================================== */
+.widgets-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+@media (max-width: 768px) {
+    .widgets-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
+   CARD BASE
+   ========================================== */
+.card {
+    background-color: transparent;
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 28px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    border-color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.card.wide-card {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   DISCORD CARD
+   ========================================== */
+.discord-profile-banner {
+    display: none;
+}
+
+.discord-avatar-container {
+    width: 80px;
+    height: 80px;
+    border: 4px solid var(--card-bg);
+    border-radius: 50%;
+    background-color: #2d3748;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    margin: 0 auto 16px;
+    flex-shrink: 0;
+}
+
+.discord-avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.discord-badges {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.discord-badge {
+    font-size: 0.55rem;
+    padding: 2px 8px;
+    background: rgba(88, 101, 242, 0.2);
+    color: #5865f2;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.discord-user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.discord-name-row {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+}
+
+.discord-tag {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 4px;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+.discord-tag .activity {
+    color: #5865f2;
+    font-weight: 500;
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.discord-connect-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #5865f2 0%, #4752c4 100%);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    border: none;
+    box-shadow: 0 4px 20px rgba(88, 101, 242, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+.discord-connect-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #6a75f5 0%, #5865f2 100%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.discord-connect-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(88, 101, 242, 0.5);
+    color: #fff;
+}
+
+.discord-connect-btn:hover::before { opacity: 1; }
+
+.discord-connect-btn:active { transform: translateY(0); }
+
+.discord-connect-btn i, .discord-connect-btn span { position: relative; z-index: 1; }
+
+/* ==========================================
+   FEATURED PROJECTS
+   ========================================== */
+.featured-section {
+    margin-top: 80px;
+    padding-top: 60px;
+    border-top: 1px solid #1f2937;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
+}
+
+.section-title {
+    font-size: clamp(1.5rem, 3vw, 1.875rem);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: -0.02em;
+}
+
+.section-title .accent {
+    color: var(--accent);
+    background: linear-gradient(135deg, var(--accent) 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    .featured-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+}
+
+.featured-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px 24px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: inherit;
+}
+
+.featured-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.featured-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.featured-icon::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 18px;
+    background: inherit;
+    opacity: 0.15;
+    filter: blur(12px);
+    z-index: -1;
+}
+
+.featured-card:nth-child(1) .featured-icon {
+    background: linear-gradient(145deg, #0f2a1e, #061a10);
+    color: var(--success);
+}
+
+.featured-card:nth-child(2) .featured-icon {
+    background: linear-gradient(145deg, #2d2510, #1a1408);
+    color: var(--gold);
+}
+
+.featured-card:nth-child(3) .featured-icon {
+    background: linear-gradient(145deg, #25162d, #12091a);
+    color: var(--purple);
+}
+
+.featured-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.featured-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin-bottom: 20px;
+}
+
+.featured-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.featured-tag {
+    padding: 6px 14px;
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+}
+
+.featured-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+}
+
+.featured-tag.primary {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-dim);
+}
+
+.featured-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent);
+    transition: all 0.2s ease;
+}
+
+.featured-link:hover {
+    color: var(--accent-bright);
+    gap: 12px;
+}
+
+.featured-link::after {
+    content: '→';
+    transition: transform 0.2s ease;
+}
+
+.featured-link:hover::after {
+    transform: translateX(4px);
+}
+
+/* ==========================================
+   SERVERS PREVIEW
+   ========================================== */
+.servers-preview {
+    margin-top: 80px;
+    padding-top: 60px;
+    border-top: 1px solid #1f2937;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s both;
+}
+
+.servers-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 1000px;
+    margin: 0 auto 32px;
+}
+
+@media (max-width: 900px) {
+    .servers-preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .servers-preview-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.server-mini-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.server-mini-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.server-mini-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.server-mini-avatar::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 16px;
+    background: inherit;
+    opacity: 0.15;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+.server-mini-avatar i {
+    display: none;
+}
+
+/* Server icon images - actual Discord icons */
+.server-mini-avatar[data-server="kelp"] {
+    background-image: url('https://cdn.discordapp.com/icons/1529764893375332443/9b0b518f3749642215621ded5f67454b.webp?size=1024');
+}
+
+.server-mini-avatar[data-server="apex"] {
+    background-image: url('https://cdn.discordapp.com/icons/1513142958356955226/f7dd8f829db325fa6f23d32da59220d7.webp?size=1024');
+}
+
+.server-mini-avatar[data-server="solucent"] {
+    background-image: url('https://cdn.discordapp.com/icons/1487168870656643172/547060e63a71fb0638e390aad9da5bd2.webp?size=1024');
+}
+
+.server-mini-avatar[data-server="untitled"] {
+    background-image: url('https://cdn.discordapp.com/icons/1461299392429691023/937b465b0ed8e71e631c3cd4fe5a98ce.webp?size=1024');
+}
+
+.server-mini-avatar[data-server="spade"] {
+    background-image: url('https://cdn.discordapp.com/icons/1405883361720926288/dbd9a2770e26a47bdb92d2622e42bd48.webp?size=1024');
+}
+
+.server-mini-avatar[data-server="solar"] {
+    background-image: url('https://cdn.discordapp.com/icons/1537117626587680818/146c1f9c748fb847b39681b81c397c19.webp?size=1024');
+}
+
+.server-mini-avatar[data-server="haze"] {
+    background-image: url('https://cdn.discordapp.com/icons/1483787912892907735/c9f4bbbb9a61a1c183fd6a37fbe96643.webp?size=1024');
+}
+
+.server-mini-avatar[data-server="bascal"] {
+    background-image: url('https://cdn.discordapp.com/icons/1489999778401222746/5e7da9096c0cdffc62bc13591ecae776.webp?size=1024');
+}
+
+.server-mini-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.server-mini-info h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.server-mini-type {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+.server-mini-card i:last-child {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+}
+
+.server-mini-card:hover i:last-child {
+    color: var(--accent);
+    transform: translateX(4px);
+}
+
+.view-all-servers {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+    text-decoration: none;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.btn-outline:hover {
+    background: var(--accent-dim);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(56, 189, 248, 0.2);
+}
+
+.btn i {
+    transition: transform 0.2s ease;
+}
+
+.btn:hover i {
+    transform: translateX(4px);
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.footer {
+    margin-top: 80px;
+    padding: 32px 24px;
+    color: #4b5563;
+    font-size: 0.85rem;
+    text-align: center;
+    border-top: 1px solid #1f2937;
+}
+
+.footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* ==========================================
+   SCROLL ANIMATIONS
+   ========================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   SCROLLBAR
+   ========================================== */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-color); }
+::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #4b5563; }
+
+/* ==========================================
+   FOCUS VISIBLE
+   ========================================== */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ==========================================
+   REDUCED MOTION
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==========================================
+   PAGE HERO (Projects/Servers pages)
+   ========================================== */
+.page-hero {
+    text-align: center;
+    padding: 60px 0 40px;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin: 0 0 16px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-desc {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
+}
+
+/* ==========================================
+   PROJECTS PAGE
+   ========================================== */
+.projects-section {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #1f2937;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.project-header {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-header::before {
+    opacity: 0.15;
+}
+
+.project-header i {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover .project-header i {
+    transform: scale(1.1);
+    color: var(--accent);
+}
+
+.project-body {
+    padding: 28px 24px;
+}
+
+.project-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.project-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+.badge.released {
+    background: rgba(16, 185, 129, 0.12);
+    color: var(--success);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.badge.released::before {
+    content: '●';
+    font-size: 0.5em;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.project-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.tech-tag {
+    padding: 6px 14px;
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+}
+
+.tech-tag.primary {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-dim);
+}
+
+.project-links {
+    display: flex;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--card-border);
+}
+
+.project-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-btn.primary {
+    background: var(--accent);
+    color: #000;
+}
+
+.project-btn.primary:hover {
+    background: var(--accent);
+    box-shadow: 0 8px 24px rgba(56, 189, 248, 0.3);
+    transform: translateY(-2px);
+    color: #000;
+}
+
+.project-btn.secondary {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--card-border);
+}
+
+.project-btn.secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+}
+
+.project-btn i { font-size: 0.9em; }
+
+/* ==========================================
+   SERVERS PAGE
+   ========================================== */
+.servers-full-section {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #1f2937;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+.servers-full-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .servers-full-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.server-full-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 28px;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.server-full-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.server-full-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.server-full-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    flex-shrink: 0;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.server-full-avatar::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 18px;
+    background: inherit;
+    opacity: 0.15;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+.server-full-avatar i {
+    display: none;
+}
+
+/* Server icon images for full cards */
+.server-full-card:nth-child(1) .server-full-avatar {
+    background-image: url('https://cdn.discordapp.com/icons/1529764893375332443/9b0b518f3749642215621ded5f67454b.webp?size=1024');
+}
+
+.server-full-card:nth-child(2) .server-full-avatar {
+    background-image: url('https://cdn.discordapp.com/icons/1513142958356955226/f7dd8f829db325fa6f23d32da59220d7.webp?size=1024');
+}
+
+.server-full-card:nth-child(3) .server-full-avatar {
+    background-image: url('https://cdn.discordapp.com/icons/1487168870656643172/547060e63a71fb0638e390aad9da5bd2.webp?size=1024');
+}
+
+.server-full-card:nth-child(4) .server-full-avatar {
+    background-image: url('https://cdn.discordapp.com/icons/1461299392429691023/937b465b0ed8e71e631c3cd4fe5a98ce.webp?size=1024');
+}
+
+.server-full-card:nth-child(5) .server-full-avatar {
+    background-image: url('https://cdn.discordapp.com/icons/1405883361720926288/dbd9a2770e26a47bdb92d2622e42bd48.webp?size=1024');
+}
+
+.server-full-card:nth-child(6) .server-full-avatar {
+    background-image: url('https://cdn.discordapp.com/icons/1537117626587680818/146c1f9c748fb847b39681b81c397c19.webp?size=1024');
+}
+
+.server-full-card:nth-child(7) .server-full-avatar {
+    background-image: url('https://cdn.discordapp.com/icons/1483787912892907735/c9f4bbbb9a61a1c183fd6a37fbe96643.webp?size=1024');
+}
+
+.server-full-card:nth-child(8) .server-full-avatar {
+    background-image: url('https://cdn.discordapp.com/icons/1489999778401222746/5e7da9096c0cdffc62bc13591ecae776.webp?size=1024');
+}
+
+.server-full-info { flex: 1; }
+
+.server-full-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+}
+
+.server-full-type {
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+}
+
+.server-full-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.server-full-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: transparent;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden.
+}
+
+.server-full-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent-dim);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.server-full-link:hover {
+    color: var(--accent);
+    background: var(--accent-dim);
+}
+
+.server-full-link:hover::before { transform: scaleX(1); }
+
+.server-full-link i { font-size: 1.1rem; transition: transform 0.2s ease; }
+
+.server-full-link:hover i { transform: translateX(4px); }

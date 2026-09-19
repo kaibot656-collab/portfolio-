@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="sharky03493 - Minecraft Plugin Projects. AntiSwear, Kits, ChatManager.">
+    <title>Projects | sharky03493</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav-container" aria-label="Main navigation">
+            <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="projects.html" class="nav-link active"><i class="fa-solid fa-folder"></i> Projects</a>
+            <a href="servers.html" class="nav-link"><i class="fa-solid fa-server"></i> Servers</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="page-hero" aria-labelledby="page-title">
+            <h1 id="page-title">Projects</h1>
+            <p class="page-desc">Production-ready Minecraft plugins built for Paper & Spigot. Clean architecture, zero dependencies.</p>
+        </section>
+
+        <section class="projects-section" aria-labelledby="projects-title">
+            <h2 id="projects-title" class="section-title">Open Source <span class="accent">Plugins</span></h2>
+            <div class="projects-grid">
+                <article class="project-card" id="antiswear">
+                    <header class="project-header anti" style="background: linear-gradient(145deg, #0f2a1e, #061a10);">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </header>
+                    <div class="project-body">
+                        <div class="project-meta">
+                            <h2 class="project-name">AntiSwear</h2>
+                            <span class="badge released">Released</span>
+                        </div>
+                        <p class="project-desc">Advanced chat filtering with custom word lists, regex patterns, and per-player bypass permissions. Optimized for zero false positives and minimal performance impact.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Anti-Cheat</span>
+                            <span class="tech-tag primary">Java 17+</span>
+                            <span class="tech-tag">Paper 1.21+</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="AntiSwear.jar" download class="project-btn primary">
+                                <i class="fa-solid fa-download"></i> Download
+                            </a>
+                            <a href="AntiSwear.jar" download class="project-btn secondary">
+                                <i class="fa-solid fa-file-code"></i> Source
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" id="kits">
+                    <header class="project-header kits" style="background: linear-gradient(145deg, #2d2510, #1a1408);">
+                        <i class="fa-solid fa-sword"></i>
+                    </header>
+                    <div class="project-body">
+                        <div class="project-meta">
+                            <h2 class="project-name">Kits</h2>
+                            <span class="badge released">Released</span>
+                        </div>
+                        <p class="project-desc">Lightweight kit management with intuitive GUI, configurable cooldowns, and customizable rewards. Includes starter sword kit with Sharpness II & Unbreaking I.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Gameplay</span>
+                            <span class="tech-tag primary">Java 17+</span>
+                            <span class="tech-tag">Paper 1.21+</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="kits.jar" download class="project-btn primary">
+                                <i class="fa-solid fa-download"></i> Download
+                            </a>
+                            <a href="kits.jar" download class="project-btn secondary">
+                                <i class="fa-solid fa-file-code"></i> Source
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" id="chatmanager">
+                    <header class="project-header chat" style="background: linear-gradient(145deg, #25162d, #12091a);">
+                        <i class="fa-solid fa-comments"></i>
+                    </header>
+                    <div class="project-body">
+                        <div class="project-meta">
+                            <h2 class="project-name">ChatManager</h2>
+                            <span class="badge released">Released</span>
+                        </div>
+                        <p class="project-desc">Complete chat solution: channels, spy mode, nicknames, staff chat, and MiniMessage formatting. Fully configurable with per-permission controls.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Chat</span>
+                            <span class="tech-tag primary">Java 17+</span>
+                            <span class="tech-tag">Bukkit API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="ChatManager-1.0.0.jar" download class="project-btn primary">
+                                <i class="fa-solid fa-download"></i> Download
+                            </a>
+                            <a href="ChatManager-1.0.0.jar" download class="project-btn secondary">
+                                <i class="fa-solid fa-file-code"></i> Source
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Built by <a href="https://discord.com/users/801457058611593266" target="_blank" rel="noopener noreferrer">sharky03493</a> · <a href="https://discord.com/users/801457058611593266" target="_blank" rel="noopener noreferrer">Discord: sharky03493</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
